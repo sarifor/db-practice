@@ -1,2 +1,2 @@
-# mysql-practice
+# db-practice
 Backup sqls
