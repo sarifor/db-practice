@@ -28,7 +28,9 @@ CREATE TABLE `employee` (
   `email` varchar(100) NOT NULL,
   `salary` int unsigned NOT NULL,
   `team` varchar(20) NOT NULL,
-  `quit_date` date DEFAULT NULL,
+  /* ALTER TABLE `zerocho`.`employee` */
+  /* CHANGE COLUMN `quit_date` `quit_data` DATE NULL DEFAULT NULL ; */
+  `quit_data` date DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `role_id` int unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -57,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-24 20:47:11
+-- Dump completed on 2023-08-24 21:02:30
