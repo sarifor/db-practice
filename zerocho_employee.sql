@@ -35,7 +35,7 @@ CREATE TABLE `employee` (
   UNIQUE KEY `email_UNIQUE` (`email`) /*!80000 INVISIBLE */,
   KEY `employee_role_fk_idx` (`role_id`),
   CONSTRAINT `employee_role_fk` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Employee Table';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Employee Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
--- TRUNCATE `zerocho`.`employee`
+INSERT INTO `employee` VALUES (2,'ar','ssss@gmaila.com',1000,'dev','2023-06-19',NULL,2),(3,'mr','bvv@gmaila.com',2000,'dev',NULL,'2023-08-21 17:43:01',3),(4,'msr','vvzz@gmaila.com',500,'design',NULL,'2023-08-21 17:43:01',3),(5,'er','yahooo@gmaila.com',8000,'dev',NULL,'2023-08-21 17:43:01',4),(6,'cr','aaabbb@gmaila.com',10000,'dev',NULL,'2023-08-21 17:43:43',1);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-24 20:14:31
+-- Dump completed on 2023-08-24 20:47:11
