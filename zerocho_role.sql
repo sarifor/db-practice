@@ -38,6 +38,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
+/*UPDATE `zerocho`.`role` SET `id` = '6' WHERE (`id` = '1'); */;
 INSERT INTO `role` VALUES (2,'newbie',3000),(3,'senior',6000),(4,'intern',2500),(6,'manager',7500);
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
