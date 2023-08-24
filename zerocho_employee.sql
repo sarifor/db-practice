@@ -28,15 +28,23 @@ CREATE TABLE `employee` (
   `email` varchar(100) NOT NULL,
   `salary` int unsigned NOT NULL,
   `team` varchar(20) NOT NULL,
-  /* ALTER TABLE `zerocho`.`employee` */
-  /* CHANGE COLUMN `quit_date` `quit_data` DATE NULL DEFAULT NULL ; */
-  `quit_data` date DEFAULT NULL,
+  `quit_date` date DEFAULT NULL,
   `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
-  `role_id` int unsigned DEFAULT NULL,
+  /* ALTER TABLE `zerocho`.`employee` 
+DROP FOREIGN KEY `employee_role_fk`;
+ALTER TABLE `zerocho`.`employee` 
+CHANGE COLUMN `role_id` `role_fk` INT UNSIGNED NULL DEFAULT NULL ;
+ALTER TABLE `zerocho`.`employee` 
+ADD CONSTRAINT `employee_role_fk`
+  FOREIGN KEY (`role_fk`)
+  REFERENCES `zerocho`.`role` (`id`)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE; */
+  `role_fk` int unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`) /*!80000 INVISIBLE */,
-  KEY `employee_role_fk_idx` (`role_id`),
-  CONSTRAINT `employee_role_fk` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `employee_role_fk_idx` (`role_fk`),
+  CONSTRAINT `employee_role_fk` FOREIGN KEY (`role_fk`) REFERENCES `role` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Employee Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,4 +67,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-24 21:02:30
+-- Dump completed on 2023-08-24 21:10:00
