@@ -16,43 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `employee`
+-- Table structure for table `role`
 --
 
-DROP TABLE IF EXISTS `employee`;
+DROP TABLE IF EXISTS `role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `employee` (
-  `id` int NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `salary` int NOT NULL,
-  `team` varchar(20) NOT NULL,
-  `quit_date` date DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `role_id` int NOT NULL COMMENT 'Role ID',
-  PRIMARY KEY (`id`),
-  KEY `FK_role_TO_employee_1` (`role_id`),
-  CONSTRAINT `FK_role_TO_employee_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
+CREATE TABLE `role` (
+  `id` int NOT NULL COMMENT 'Role ID',
+  `name` varchar(10) NOT NULL COMMENT 'Role Name',
+  `min_salary` int NOT NULL DEFAULT '2500' COMMENT 'Minimum Salary',
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
-/* Another way to add Foreign key
-ALTER TABLE `employee` ADD CONSTRAINT `FK_role_TO_employee_1` FOREIGN KEY (
-	`role_id`
-)
-REFERENCES `role` (
-	`id`
-);
-*/
-
 --
--- Dumping data for table `employee`
+-- Dumping data for table `role`
 --
 
-LOCK TABLES `employee` WRITE;
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -64,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-16 11:13:21
+-- Dump completed on 2023-09-16 12:30:51
