@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `role`
+-- Table structure for table `employee_project`
 --
 
-DROP TABLE IF EXISTS `role`;
+DROP TABLE IF EXISTS `employee_project`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT COMMENT 'Role ID',
-  `name` varchar(10) NOT NULL COMMENT 'Role Name',
-  `min_salary` int unsigned NOT NULL DEFAULT '2500' COMMENT 'Minimum Salary',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_UNIQUE` (`id`),
-  UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Role table';
+CREATE TABLE `employee_project` (
+  `employee_id` int unsigned NOT NULL,
+  `project_id` int unsigned NOT NULL,
+  KEY `employee_fk` (`employee_id`),
+  KEY `project_fk_idx` (`project_id`),
+  CONSTRAINT `employee_fk` FOREIGN KEY (`employee_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `project_fk` FOREIGN KEY (`project_id`) REFERENCES `project` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `role`
+-- Dumping data for table `employee_project`
 --
 
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'manager',7500),(2,'newbie',3000),(3,'senior',6000),(4,'intern',2500);
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+LOCK TABLES `employee_project` WRITE;
+/*!40000 ALTER TABLE `employee_project` DISABLE KEYS */;
+INSERT INTO `employee_project` VALUES (2,2),(2,1),(3,2),(4,1),(5,1);
+/*!40000 ALTER TABLE `employee_project` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-18 17:33:04
+-- Dump completed on 2023-09-18 17:33:05
